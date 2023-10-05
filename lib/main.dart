@@ -11,23 +11,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.blueGrey),
-        color: Colors.black12,
-        debugShowCheckedModeBanner: false,
-        home: Homepage());
+      home: const HomeScreen(),
+      theme: ThemeData(primarySwatch: Colors.brown),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page Screen11111"),
+        title: const Text("App Toolbar"),
+        titleSpacing: 24,
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey,
+        toolbarOpacity: 0.5,
+        shadowColor: Colors.cyan,
+        elevation: 16,
+        toolbarHeight: 60,
       ),
-      body: const Text("Hello from flutter"),
+      body: const Text("Hello Dart"),
     );
   }
 }
