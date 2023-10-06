@@ -22,10 +22,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   mySnackbar(message, context) {
-  return  ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message))
-
-    );
+    return ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -37,39 +35,94 @@ class HomeScreen extends StatelessWidget {
         titleTextStyle: TextStyle(color: Colors.white),
         backgroundColor: Colors.amber,
         shadowColor: Colors.cyan,
-        elevation: 16,
+        elevation: 8,
         toolbarHeight: 60,
         actions: [
-          IconButton(onPressed: () {mySnackbar("I am Comments", context);}, icon: const Icon(Icons.comment)),
-          IconButton(onPressed: () {mySnackbar("I am Search", context);}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {mySnackbar("I am Settings", context);}, icon: const Icon(Icons.settings)),
-          IconButton(onPressed: () {mySnackbar("I am Email", context);}, icon: const Icon(Icons.email)),
+          IconButton(
+              onPressed: () {
+                mySnackbar("I am Comments", context);
+              },
+              icon: const Icon(Icons.comment)),
+          IconButton(
+              onPressed: () {
+                mySnackbar("I am Search", context);
+              },
+              icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {
+                mySnackbar("I am Settings", context);
+              },
+              icon: const Icon(Icons.settings)),
+          IconButton(
+              onPressed: () {
+                mySnackbar("I am Email", context);
+              },
+              icon: const Icon(Icons.email)),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 16,
         backgroundColor: Colors.amber,
         child: Icon(Icons.add),
-        onPressed: (){mySnackbar("Float button clicked", context);},
+        onPressed: () {
+          mySnackbar("Float button clicked", context);
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
+        backgroundColor: Colors.amber,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "menu"),
-          BottomNavigationBarItem(icon: Icon(Icons.contact_mail), label: "Email"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.contact_mail), label: "Email"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
         ],
-        onTap: (int index){
-          if(index==0){
+        onTap: (int index) {
+          if (index == 0) {
             mySnackbar("I am Botton tab menu.", context);
           }
-          if(index==1){
+          if (index == 1) {
             mySnackbar("I am Botton tab mail.", context);
           }
-          if(index==2){
+          if (index == 2) {
             mySnackbar("I am Botton tab person.", context);
           }
         },
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(child: Text("Md Eusuf Uddin")),
+            ListTile(
+              title: Text("About"),
+              leading: Icon(Icons.home),
+              onTap: () {
+                mySnackbar("About", context);
+              },
+            ),
+            ListTile(
+              title: Text("Education"),
+              leading: Icon(Icons.person),
+              onTap: () {
+                mySnackbar("Education", context);
+              },
+            ),
+            ListTile(
+              title: Text("Gallery"),
+              leading: Icon(Icons.percent),
+              onTap: () {
+                mySnackbar("Gallery", context);
+              },
+            ),
+            ListTile(
+              title: Text("contact"),
+              leading: Icon(Icons.contact_page),
+              onTap: () {
+                mySnackbar("contact", context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
