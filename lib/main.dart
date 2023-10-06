@@ -52,6 +52,25 @@ class HomeScreen extends StatelessWidget {
         child: Icon(Icons.add),
         onPressed: (){mySnackbar("Float button clicked", context);},
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "menu"),
+          BottomNavigationBarItem(icon: Icon(Icons.contact_mail), label: "Email"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+        ],
+        onTap: (int index){
+          if(index==0){
+            mySnackbar("I am Botton tab menu.", context);
+          }
+          if(index==1){
+            mySnackbar("I am Botton tab mail.", context);
+          }
+          if(index==2){
+            mySnackbar("I am Botton tab person.", context);
+          }
+        },
+      ),
     );
   }
 }
