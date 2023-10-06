@@ -92,7 +92,14 @@ class HomeScreen extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           children: [
-            DrawerHeader(child: Text("Md Eusuf Uddin")),
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+                child: UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: Colors.amber),
+              accountName: Text("Md Eusuf Uddin"),
+              accountEmail: Text("eusuf.cse@gmail.com"),
+                  currentAccountPicture: Image.network("https://static-00.iconduck.com/assets.00/flutter-icon-826x1024-6zc4ptzd.png"),
+            )),
             ListTile(
               title: Text("About"),
               leading: Icon(Icons.home),
