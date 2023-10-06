@@ -46,7 +46,12 @@ class HomeScreen extends StatelessWidget {
           IconButton(onPressed: () {mySnackbar("I am Email", context);}, icon: const Icon(Icons.email)),
         ],
       ),
-      body: const Text("Hello Dart"),
+      floatingActionButton: FloatingActionButton(
+        elevation: 16,
+        backgroundColor: Colors.amber,
+        child: Icon(Icons.add),
+        onPressed: (){mySnackbar("Float button clicked", context);},
+      ),
     );
   }
 }
