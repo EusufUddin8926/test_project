@@ -21,18 +21,30 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  mySnackbar(message, context) {
+  return  ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message))
+
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("App Toolbar"),
         titleSpacing: 24,
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey,
-        toolbarOpacity: 0.5,
+        titleTextStyle: TextStyle(color: Colors.white),
+        backgroundColor: Colors.amber,
         shadowColor: Colors.cyan,
         elevation: 16,
         toolbarHeight: 60,
+        actions: [
+          IconButton(onPressed: () {mySnackbar("I am Comments", context);}, icon: const Icon(Icons.comment)),
+          IconButton(onPressed: () {mySnackbar("I am Search", context);}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {mySnackbar("I am Settings", context);}, icon: const Icon(Icons.settings)),
+          IconButton(onPressed: () {mySnackbar("I am Email", context);}, icon: const Icon(Icons.email)),
+        ],
       ),
       body: const Text("Hello Dart"),
     );
