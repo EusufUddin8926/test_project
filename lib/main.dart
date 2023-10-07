@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const HomeScreen(),
-      theme: ThemeData(primarySwatch: Colors.brown),
+      theme: ThemeData(primarySwatch: Colors.green),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("App Toolbar"),
-        titleSpacing: 24,
+        titleSpacing: 0,
         titleTextStyle: TextStyle(color: Colors.white),
         backgroundColor: Colors.amber,
         shadowColor: Colors.cyan,
@@ -69,23 +69,22 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: 1,
         backgroundColor: Colors.amber,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "menu"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail), label: "Email"),
+          BottomNavigationBarItem(icon: Icon(Icons.contact_mail), label: "Email"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
         ],
         onTap: (int index) {
           if (index == 0) {
-            mySnackbar("I am Botton tab menu.", context);
+            mySnackbar("I am Bottom tab menu.", context);
           }
           if (index == 1) {
-            mySnackbar("I am Botton tab mail.", context);
+            mySnackbar("I am Bottom tab mail.", context);
           }
           if (index == 2) {
-            mySnackbar("I am Botton tab person.", context);
+            mySnackbar("I am Bottom  tab person.", context);
           }
         },
       ),
@@ -93,18 +92,20 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              padding: EdgeInsets.all(0),
+                padding: EdgeInsets.all(0),
                 child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.amber),
-              accountName: Text("Md Eusuf Uddin"),
-              accountEmail: Text("eusuf.cse@gmail.com"),
-                  currentAccountPicture: Image.network("https://static-00.iconduck.com/assets.00/flutter-icon-826x1024-6zc4ptzd.png"),
-            )),
+                  decoration: BoxDecoration(color: Colors.amber),
+                  accountName: Text("Md Eusuf Uddin"),
+                  accountEmail: Text("eusuf.cse@gmail.com"),
+                  currentAccountPicture: Image.network(
+                      "https://static-00.iconduck.com/assets.00/flutter-icon-826x1024-6zc4ptzd.png"),
+                )),
             ListTile(
               title: Text("About"),
               leading: Icon(Icons.home),
               onTap: () {
                 mySnackbar("About", context);
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -131,6 +132,20 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      body: Container(
+        width: 250,
+        height: 250,
+        margin: EdgeInsets.fromLTRB(40, 40, 60, 60),
+        padding: EdgeInsets.all(60),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          border: Border.all(color: Colors.black, width: 6),
+          borderRadius: BorderRadius.all(Radius.circular(6)),
+        ),
+        child: Image.network("https://www.baabtra.com/assets/images/course/flutter-course-training-calicut-kerala.png"),
+      )
+      ,
     );
   }
 }
